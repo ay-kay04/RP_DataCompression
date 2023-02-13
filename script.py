@@ -4,6 +4,9 @@ import threading
 import time
 import sys
 import matplotlib.pyplot as plt
+import calculate_metrics
+from CSV import create_csv
+
 flag = 1
 cpu_usage_list = []
 memory_percent_usage_list = []
@@ -73,6 +76,16 @@ if __name__ == "__main__":
 	plt.savefig('Memory usage for ' + sys.argv[2] + '.png')
 	plt.close()
 	
+
+	path = './CSV/compression_stats.csv'
+	isExist = os.path.isfile(path)
+	print("exist\n", isExist)
+	x = sys.argv[1].split()
+	if(x[3][1].isnumeric()):
+		if(not(isExist)):
+			create_csv.createCSV()
+		calculate_metrics.computeMetrics(x[3][1],x[5], x[6], compression_time,cpu_usage_list,memory_percent_usage_list)
+		
 	
 	
 		

@@ -31,7 +31,7 @@ elif [ $tool = "zstd" ]
 	read level
 	
 	echo "Compressing using zstd now"
-	python3 script.py "tar -I 'zstd -$level' -cf archive.tar.zst $direct" "compression using zstd, mode $mode"
+	python3 script.py "tar -I 'zstd -$level' -cf archive.tar.zst $direct" "compression using zstd, mode $level"
 	echo "Decompressing using zstd now"
 	python3 script.py "tar -I 'zstd --decompress' -xf archive.tar.zst $direct" "decompression using zstd"
 
