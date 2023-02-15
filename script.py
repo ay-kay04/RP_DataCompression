@@ -64,7 +64,7 @@ if __name__ == "__main__":
 	plt.title("CPU usage for " + sys.argv[2])
 	plt.tick_params(axis='x', labelrotation=-45)
 	plt.figtext(0.7,0.8,"Time taken : " + str(compression_time))
-	plt.savefig('CPU usage for ' + sys.argv[2] + '.png')
+	plt.savefig('./plots/CPU usage for ' + sys.argv[2] + '.png')
 	plt.close()
 	
 	plt.bar(time_values, memory_percent_usage_list)
@@ -73,13 +73,12 @@ if __name__ == "__main__":
 	plt.title("Memory usage for " + sys.argv[2])
 	plt.tick_params(axis='x', labelrotation=-45)
 	plt.figtext(0.7,0.8,"Time taken : " + str(compression_time))
-	plt.savefig('Memory usage for ' + sys.argv[2] + '.png')
+	plt.savefig('./plots/Memory usage for ' + sys.argv[2] + '.png')
 	plt.close()
 	
 
 	path = './CSV/compression_stats.csv'
 	isExist = os.path.isfile(path)
-	print("exist\n", isExist)
 	x = sys.argv[1].split()
 	if(x[3][1].isnumeric()):
 		if(not(isExist)):
