@@ -1,3 +1,0 @@
-1. run script.sh 
-2. script.sh and script.py should be in same directory before running script.sh 
-3. install matplotlib before running
