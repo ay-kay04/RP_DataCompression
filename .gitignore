@@ -2,6 +2,7 @@ home/
 __pycache__/
 pyvenev.cfg
 z.zip
+DataSet/
 CSV/compression_stats.csv
 miscellaneous/
 archive.tar.zst
