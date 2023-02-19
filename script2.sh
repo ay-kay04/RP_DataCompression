@@ -40,6 +40,7 @@ elif [ $tool = "zstd" ]
 		echo -e "\n"
 		done
 	done
+	speaker-test -t sine -f 1000 -l 1 & sleep .2 && kill -9 $!
 else
 	echo "Invalid tool" 
 fi
