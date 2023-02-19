@@ -15,6 +15,7 @@ compression_time = 0
 def compress():
 	global flag,compression_time
 	start_time = time.time()
+	print(sys.argv[1])
 	os.system(sys.argv[1])
 	final_time = time.time()
 	compression_time = round(final_time - start_time,2)
