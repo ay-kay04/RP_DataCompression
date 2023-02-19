@@ -27,15 +27,19 @@ elif [ $tool = "zstd" ]
  
  	#python3 script.py "zstd --train -r "/trainingset" -o dict" "building dictionary"
  	
-	echo "Enter level of compression"
-	read level
-	
-	echo "Compressing using zstd now"
-	python3 script.py "tar -I 'zstd -$level' -cf archive.tar.zst $direct" "compression using zstd, level $level"
-	echo "Decompressing using zstd now"
-	python3 script.py "tar -I 'zstd --decompress' -xf archive.tar.zst $direct" "decompression using zstd"
-
-	echo -e "\n"
+	# echo "Enter level of compression"
+	# read level
+	for file_name in "$direct"/*
+	do
+		for((level = 1; level <= 21; level++))
+		do
+		echo "level - $level Compressing using zstd now"
+		python3 script.py "tar -I 'zstd -$level' -cf archive.tar.zst $file_name" "compression using zstd, level $level"
+		echo "Decompressing using zstd now"
+		python3 script.py "tar -I 'zstd --decompress' -xf archive.tar.zst $file_name" "decompression using zstd"
+		echo -e "\n"
+		done
+	done
 else
 	echo "Invalid tool" 
 fi
