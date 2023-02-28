@@ -89,6 +89,10 @@ if __name__ == "__main__":
 			calculate_metrics.computeMetrics(level,x[5], x[6], compression_time,cpu_usage_list,memory_percent_usage_list)
 		else:
 			calculate_metrics.computeMetrics(x[3][1],x[5], x[6], compression_time,cpu_usage_list,memory_percent_usage_list)
+
+
+
+
 		
 	
 	
